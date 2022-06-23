@@ -12,6 +12,8 @@
 
 # profiling files
 chrome-profiler-events*.json
+.firebaserc
+firebase.json
 
 # IDEs and editors
 /.idea
