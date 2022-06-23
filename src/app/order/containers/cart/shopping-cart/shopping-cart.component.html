@@ -1,0 +1,43 @@
+<div class="container">
+  <button class="btn btn-sm btn-danger" (click)="removeAll()">
+    Eliminar todo
+  </button>
+  <table class="table" *ngIf="(cart$ | async) as cart">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Price</th>
+        <th scope="col">Total</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of cart">
+        <td scope="row">
+          <a class="btn btn-sm btn-danger to-link" (click)="removeProductCart(product)">
+            <i class="fa fa-trash-can"></i>
+          </a>
+          <img [src]="product.image" [alt]="product.title" class="img-thumbnail img-cart-table" />
+          {{ product.title }}
+        </td>
+        <td>
+          <input type="number" [(ngModel)]="product.quantity" (change)="addItemCart(product)" />          
+        </td>
+        <td>
+          {{ product.price | currency }}
+        </td>
+        <td *ngIf="product.quantity"><!-- en este caso hago esta verificacion porque quantity es opcional, pero on debeiria -->
+          {{ (product.price * product.quantity) | currency }}
+        </td>
+      </tr>
+      <tr>
+        <td colspan="3" class="text-end">
+          <b>TOTAL</b>
+        </td>
+        <td>
+          {{ totalAmount | currency }}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

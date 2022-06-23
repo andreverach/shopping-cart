@@ -1,0 +1,23 @@
+<div class="container" *ngIf="(product$ | async) as product">  
+  <div class="row">
+    <div class="col">
+      <img [src]="product.image" class="img-fluid" [alt]="product.title">
+    </div>
+    <div class="col">
+      <div class="card" >  
+        <div class="card-body">
+          <h5 class="card-title">
+            {{ product.title }}
+          </h5>
+          <p class="card-text">
+            {{ product.description }}
+          </p>
+          <a (click)="addToCart(product)" class="btn btn-sm btn-success">
+            <i class="fa fa-cart-plus"></i>
+            Add to cart
+          </a>
+        </div>
+      </div>
+    </div>    
+  </div>
+</div>

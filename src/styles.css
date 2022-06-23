@@ -1,1 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
+.isActive{
+  background-color: red;
+}
+.img-cart-table{
+  width: 100px;
+  height: 100px;
+}
