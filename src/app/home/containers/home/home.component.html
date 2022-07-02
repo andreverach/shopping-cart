@@ -1,6 +1,6 @@
 <div class="container-fluid mt-3">
   <div class="row ms-5">
-    <div class="col-3">      
+    <div class="col-md-3">
       <app-categories-list
       [categories]="categories"
       (filterProducts)="getProducts($event)"></app-categories-list>
@@ -8,7 +8,7 @@
         {{ cart$ | async | json}}
       </p> -->
     </div>
-    <div class="col-9">
+    <div class="col-md-9">
       <app-products-list
       [products]="products"
       (pushCart)="addToCart($event)"
